@@ -9,13 +9,16 @@ import { HeaderComponent } from './component/tamplate/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NavComponent } from './components/template/nav/nav.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { HomeComponent } from './views/home/home.component';
 //import { CheckoutComponent } from './viewes/checkout/checkout/checkout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardFilmComponent } from './components/template/card-film/card-film.component';
 import { ListFilmsComponent } from './views/list-films/list-films.component';
+import { SelectButtonComponent } from './components/template/select-button/select-button.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { ListFilmsComponent } from './views/list-films/list-films.component';
     HomeComponent,
     CardFilmComponent,
     ListFilmsComponent,
+    SelectButtonComponent,
+    
     
    
     
@@ -39,6 +44,8 @@ import { ListFilmsComponent } from './views/list-films/list-films.component';
     MatListModule,
     MatCardModule,
     HttpClientModule,
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
