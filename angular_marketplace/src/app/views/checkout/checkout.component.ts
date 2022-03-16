@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Film } from '../list-films/film.model';
 import { CheckoutService } from './checkout.service';
 
@@ -15,7 +16,7 @@ export class CheckoutComponent implements OnInit {
   hide = true;
   form: any;
 
-  constructor(private checkoutService: CheckoutService) { }
+  constructor(private checkoutService: CheckoutService, private route : Router) { }
 
   ngOnInit(): void {
   this.totalPrice = this.checkoutService.totalPrice;
@@ -23,6 +24,16 @@ export class CheckoutComponent implements OnInit {
   this.toggleButton();
 
   }
+
+  payment(): void {
+    
+  }
+
+  cancel(): void{
+    this.disabled = true;
+
+  }
+
   toggleButton(){
     if(this.listSelectedFilms.length == 0) {
       this.disabled = true;

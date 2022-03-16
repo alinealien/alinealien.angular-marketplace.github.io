@@ -36,9 +36,38 @@
                 [disabled]="disabled === true">
                 <i class="material-icons" matSuffix required>person</i>
                 <mat-hint>Ex.: Alin, Nyx...</mat-hint>
-
             </mat-form-field>
         </p>
+
+        <p>
+            <mat-form-field appearance="outline" class="input-form">
+            <mat-label>
+             What's your address?
+            </mat-label>
+            <input matInput placeholder="Your address" required name="address"
+            [disabled]="disabled === true">
+            <i class="material-icons" matSuffix required>home</i>
+            <mat-hint>Ex.: Ilkley Road, Ilkley, West Yorkshire </mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill" class="input-form">
+        <mat-label>
+        Enter your password...
+        </mat-label>
+        <input matInput {type]="hide ? 'password' : 'text'" required name="password"
+        [disabled]="disabled === true">
+        <button mat-icon-button matSuffix (click)="hide = !hide">
+            <i class="material-icons" matSuffix required>{{ hide ? 
+                "visibility off" : "visibility"}}</i>
+        </button>
+        <mat-hint>Ex.: Alin, Nyx...</mat-hint>
+    </mat-form-field>
+</p>
+<button type="submit" mat-flat-button class="mat-pay" (click)="payment()"
+[disabled]="disabled === true">Pay</button>
+<button mat-flat-button class="mat-cancel" (click)="cancel()"
+[disabled]="disabled === true">{{disabled ? "Black" : "Cancel"}}}</button>
         </form>
     </mat-card>
 </mat-card>

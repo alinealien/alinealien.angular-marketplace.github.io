@@ -1,5 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { Film } from '../list-films/film.model';
 
@@ -33,12 +34,24 @@ export class CheckoutService {
 
   }
 
-  constructor(private httpClient: HttpClient){
-
+  constructor(private httpClient: HttpClient, private snackbar: MatSnackBar){
   }
+  
+  
 
 getListFilms(): Observable<Film[]>{
   return this.httpClient.get<Film[]>(this.baseUrl+'/films');
+}
+
+showMessage(msg: string, isError: boolean = false): void {
+  this.snackbar.open(msg, "close", {
+    duration: 3000,
+    horizontalPosition: "right",
+    verticalPosition: "top",
+    panelClass: isError ? ['sucess'] : ['error'],
+  
+  })
+
 }
 
 selectFilm() {
