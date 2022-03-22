@@ -37,22 +37,20 @@ export class CheckoutService {
   constructor(private httpClient: HttpClient, private snackbar: MatSnackBar){
   }
   
+  showMessage(msg: string, isError: boolean = false) : void {
+    this.snackbar.open(msg, "close", {
+      duration: 10000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: isError ? ['sucess'] : ['error'], 
+    })
+  }
   
 
 getListFilms(): Observable<Film[]>{
   return this.httpClient.get<Film[]>(this.baseUrl+'/films');
 }
 
-showMessage(msg: string, isError: boolean = false): void {
-  this.snackbar.open(msg, "close", {
-    duration: 3000,
-    horizontalPosition: "right",
-    verticalPosition: "top",
-    panelClass: isError ? ['sucess'] : ['error'],
-  
-  })
-
-}
 
 selectFilm() {
   setTimeout(() => {
@@ -67,12 +65,13 @@ unselectFilm() {
   this.totalPrice -= this.getPrice();
   if (this.totalPrice < 0) {
     this.totalPrice = 0;
-    console.log(this.listSelectedFilms);
+    //console.log(this.listSelectedFilms);
   }
   //console.log(this.totalPrice);
   let index = this.listSelectedFilms.indexOf(this.getFilm());
   if (index > -1 || index === this.listSelectedFilms.indexOf(this.getFilm())){
     this.listSelectedFilms.splice(index, 1)
   }
+  console.log(this.listSelectedFilms);
 }
 }
