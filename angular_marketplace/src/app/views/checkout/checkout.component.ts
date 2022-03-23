@@ -31,18 +31,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   payment(): void {
-    if(
+    if (
       this.client.address === undefined ||
       this.client.name === undefined ||
       this.client.password === undefined
     ) {
       this.checkoutService.showMessage('Plese enter a valid data', false);
     } else{
-      this.checkoutService.showMessage(`Payment is sucessfully, good choice! Confirmed order: to '${this.client.address} by ${this.client.name} `, true);
+      this.checkoutService.showMessage(`Payment is sucessfully, good choice! Confirmed order: to '${this.client.address} by ${this.client.name}`, true);
       this.route.navigate(['../list-films']);
     }
     //this.checkoutService.showMessage("Payment!", true);
-   
 
   }
 

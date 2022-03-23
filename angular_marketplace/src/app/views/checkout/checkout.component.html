@@ -76,14 +76,13 @@
                 </mat-form-field>
             </p>
             <button 
-            type="submit" m
-            at-flat-button class="mat-pay" 
+            type="submit" 
+            mat-flat-button 
+            class="mat-pay"
             (click)="payment()"
             [disabled]="client.password == undefined || client.password == '' || 
             totalPrice == 0 ? 'true' : 'false'"
-            >
-            
-            Pay</button>
+            >Pay</button>
 
             <button mat-flat-button class="mat-cancel" (click)="cancel()">
             {{disabled ? "Back" : "Cancel"}}</button>
